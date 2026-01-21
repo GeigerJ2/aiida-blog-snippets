@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aiida-monitor-example"
+version = "0.1.0"
+description = "Example AiiDA plugin with a monitor"
+authors = [{ name = "Giovanni Pizzi" }]
+requires-python = ">=3.9"
+
+# dependencies = ["aiida-core>=2.7", "aiida-shell>=0.8.2"]
+dependencies = [
+  "aiida-core @ git+https://github.com/aiidateam/aiida-core.git@ca143ca29879bc4d5fcbae211272d0b94879eca5",
+  # "aiida-core==2.7.2",
+  "aiida-shell==0.8.2",
+  'matplotlib~=3.3,>=3.3.4',
+]
+
+[project.entry-points."aiida.calculations.monitors"]
+"monitor_example.monitor_temperature" = "aiida_monitor_example:monitor_temperature"
