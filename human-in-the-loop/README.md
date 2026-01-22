@@ -18,7 +18,7 @@ This pattern is useful for workflows that require human decision-making, validat
 ## Installation
 
 ```bash
-cd /home/geiger_j/aiida_projects/aiida-website/git-repos/aiida-blog-snippets/human-in-the-loop
+cd aiida-blog-snippets/human-in-the-loop
 pip install -e .
 ```
 
@@ -66,7 +66,7 @@ control.play_processes([wf])
 
 ### Automated Interaction
 
-See `examples/auto_guess.py` for a script that automatically interacts with a running workflow.
+See `examples/auto-guess.py` for a script that automatically interacts with a running workflow.
 
 ## How It Works
 

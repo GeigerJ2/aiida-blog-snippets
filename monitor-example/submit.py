@@ -30,7 +30,7 @@ try:
 except NotExistent:
     code = PortableCode(
         filepath_executable="./measure-temperature.py",
-        filepath_files=str(Path("code").resolve()),
+        filepath_files=str(Path("scripts").resolve()),
     )
     code.label = code_label
     code.store()
