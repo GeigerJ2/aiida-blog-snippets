@@ -2,7 +2,6 @@ from pathlib import Path
 
 from aiida import orm, engine
 from aiida_shell import ShellJob
-from aiida.orm.nodes.data.code import PortableCode
 from aiida.common.exceptions import NotExistent
 
 monitors = {
@@ -28,7 +27,7 @@ try:
     code = orm.load_code(code_label)
     print(f"Using existing code: {code}")
 except NotExistent:
-    code = PortableCode(
+    code = orm.PortableCode(
         filepath_executable="./measure-temperature.py",
         filepath_files=str(Path("scripts").resolve()),
     )
@@ -37,6 +36,6 @@ except NotExistent:
     print(f"Created new code: {code}")
 
 inputs = {"code": code, "metadata": metadata, "monitors": monitors}
-results, node = engine.run_get_node(ShellJob, **inputs)
+node = engine.submit(ShellJob, **inputs)
 print(f"{node=}")
-print(f"{results=}")
+# print(f"{results=}")
